@@ -97,6 +97,15 @@ public:
 		}
 	}
 
+	int GetDamage() {
+		int damage = this->attack + inventory.GetWeaponDamage();
+		if (IsCrit()) {
+			damage *= 2;
+			std::cout << "CRITICAL HIT!" << std::endl;
+		}
+		return damage;
+	}
+
 	void ShowExpBar() {
 		int expBarSize = 20;
 		int expBarProgress = (expBarSize * exp) / maxExp;
@@ -114,9 +123,7 @@ public:
 	
 	void Attack(Entity &enemy)
 	{
-		int damage = this->attack;
-		if(IsCrit())
-			damage = damage * 2;
+		int damage = GetDamage();
 		enemy.SetHealth(enemy.GetHealth() - (damage - enemy.GetDefense()));
 		std::cout << this->name << " attacked " << enemy.GetName() << " for " << (damage - enemy.GetDefense()) << " damage!" << std::endl;
 		if (enemy.GetHealth() <= 0) {

@@ -85,8 +85,9 @@ void Game::DrawFrame() {
 	std::cout << "\n\n Choose action: " << std::endl;
 	std::cout << " 1. Start Stage" << std::endl;
 	std::cout << " 2. Show EQ" << std::endl;
-	std::cout << " 3. Shop" << std::endl;
-	std::cout << " 4. Exit" << std::endl;
+	std::cout << " 3. Change EQ" << std::endl;
+	std::cout << " 4. Shop" << std::endl;
+	std::cout << " 5. Exit \n\n --> ";
 
 	switch (GetDecision())
 	{
@@ -95,8 +96,27 @@ void Game::DrawFrame() {
 		break;
 	case 2:
 		player.inventory.ShowInventory();
-		std::cout << "Press any key to exit..." << std::endl;
+		std::cout << " Press any key to exit..." << std::endl;
 		_getch();
+		break;
+	case 3:
+		player.inventory.ChangeEquipment();
+		std::cout << " Press any key to exit..." << std::endl;
+		_getch();
+		break;
+	case 5:
+		for (int i = 3; i > 0; i--)
+		{
+			std::cout << " Game will be closed in " << i << std::endl;
+			Sleep(1000);
+		}
+		std::cout << " Thanks for playing! " << std::endl;
+		Sleep(1000);
+		exit(0);
+		break;
+	default:
+		std::cout << " Wrong decision..." << std::endl;
+		Sleep(1000);
 		break;
 	}
 }
@@ -110,8 +130,10 @@ void Game::StartGame() {
 	isGameRunning = true;
 	Weapon sword("Starting Sword", 1, 55, 10, 10);
 	Weapon sword1("Newbie Sword", 1, 15, 10, 10);
+	Armor armor("Starting Armor", 1, 20);
 	player.inventory.AddWeapon(sword);
 	player.inventory.AddWeapon(sword1);
+	player.inventory.AddArmor(armor);
 	
 	while (isGameRunning) {
 		DrawFrame();

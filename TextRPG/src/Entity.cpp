@@ -9,13 +9,27 @@ Entity::Entity(std::string name, std::string entity_class, int health,
 		this->health = health;
 		this->attack = attack;
 		this->defense = defense;
+
+		Weapon weapon("Zombie Sword", 1, 5, 1, 1);
+		inventory.AddWeapon(weapon);
+		inventory.equippedWeaponID = 0;
+		Armor armor("Newbie Armor", 1, 1);
+		inventory.AddArmor(armor);
+		inventory.equippedArmorID = 0;
 	}
 
-	if (entity_class == "warrior") {
+	else if (entity_class == "warrior") {
 		this->entity_class = entity_class;
 		this->health = 150;
 		this->attack = 90;
 		this->defense = 20;
+		
+		Weapon weapon("Newbie Sword", 1, 25, 1, 1);
+		inventory.AddWeapon(weapon);
+		inventory.equippedWeaponID = 0;
+		Armor armor("Newbie Armor", 1, 1);
+		inventory.AddArmor(armor);
+		inventory.equippedArmorID = 0;
 	}
 	
 
