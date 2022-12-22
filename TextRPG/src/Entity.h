@@ -10,6 +10,10 @@ public:
 	Entity(std::string name = "", std::string entity_class = "NPC", int health = 0,
 		int attack = 0, int defense = 0, int level = 1, int gold = 0);
 
+	/// <summary>
+	/// Final hit after defeating enemy
+	/// </summary>
+	/// <param name="enemy">Enemy</param>
 	void KillEnemy(Entity enemy) {
 		this->exp += enemy.GetExp();
 		if (this->exp >= this->maxExp) {
@@ -21,8 +25,12 @@ public:
 			this->attack += 1;
 			this->defense += 1;
 		}
+		this->gold += enemy.GetGold();
 	}
 
+	/// <summary>
+	/// Show all the info about entity
+	/// </summary>
 	void ShowStats() {
 		std::cout << "\n" << GetName() << " stats:" << std::endl;
 		if (entity_class != "NPC")
@@ -32,12 +40,19 @@ public:
 			
 		std::cout << " Name: " << this->name << " Class: " << this->entity_class << std::endl;
 		std::cout << " Health: " << this->health << "/" << this->maxHealth << std::endl;
-		std::cout << " Attack: " << this->attack << " | Defense: " << this->defense << std::endl;
+		std::cout << " Damage: " << GetDamage() << " | Defense: " << GetFullDefense() << std::endl;
+		if (entity_class != "NPC")
+		{
+			std::cout << " Gold: " << GetGold() << std::endl;
+		}
 
 	}
 
 	std::string GetName() {
 		return name;
+	}
+	int GetGold() {
+		return gold;
 	}
 	int GetLevel() {
 		return level;
@@ -104,6 +119,10 @@ public:
 			std::cout << "CRITICAL HIT!" << std::endl;
 		}
 		return damage;
+	}
+
+	int GetFullDefense() {
+		return this->defense + inventory.GetArmorDefense();
 	}
 
 	void ShowExpBar() {

@@ -4,17 +4,23 @@ Game::Game() {
 	stage = 0;
 }
 
-
+/// <summary>
+/// RNG for enemy spawn
+/// </summary>
+/// <returns>Enemy</returns>
 Entity Game::spawnEnemy() {
 	Entity enemy("Enemy", "NPC", 100 + (stage * 10), 10, 0, stage, 50);
-	//enemy.SetLevel(stage);
 	enemy.SetHealth(100 + (stage * 10));
-	//enemy.SetMaxHealth(100 + (stage * 10));
 	enemy.SetExp(50 + (stage * 10));
 	enemy.SetAttack(10 + (stage * 10));
 	return enemy;
 }
 
+
+/// <summary>
+/// Start a fight with an enemy
+/// </summary>
+/// <param name="enemy">Enemy</param>
 void Game::StartFight(Entity enemy) 
 {
 	system("cls");
@@ -57,6 +63,10 @@ void Game::StartFight(Entity enemy)
 	}
 }
 
+
+/// <summary>
+/// End the game when player is dead
+/// </summary>
 void Game::EndGame() {
 	system("cls");
 	std::cout << "You died!" << std::endl;
@@ -67,6 +77,10 @@ void Game::EndGame() {
 	exit(0);
 }
 
+
+/// <summary>
+/// Start a new stage
+/// </summary>
 void Game::StartStage() {
 	stage++;
 	system("cls");
@@ -76,6 +90,9 @@ void Game::StartStage() {
 	
 }
 
+/// <summary>
+/// Main Game Frame
+/// </summary>
 void Game::DrawFrame() {
 	system("cls");
 	std::cout << " Tower of Crack - [STAGE " << GetStage() << "]" << std::endl << std::endl;
@@ -121,6 +138,9 @@ void Game::DrawFrame() {
 	}
 }
 
+/// <summary>
+/// Game init and main loop
+/// </summary>
 void Game::StartGame() {
 	std::cout << " Enter your name: ";
 	std::string _name;

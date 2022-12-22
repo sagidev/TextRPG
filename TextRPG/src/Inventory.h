@@ -36,6 +36,14 @@ public:
 		else
 			return 0;
 	}
+
+	int GetArmorDefense()
+	{
+		if (armors.size() > 0)
+			return armors[equippedArmorID].getArmor();
+		else
+			return 0;
+	}
 	
 	void ShowInventory() {
 		system("cls");
@@ -83,8 +91,11 @@ public:
 			equippedArmorID = armorID - 1;
 			std::cout << "\n Armor changed to " << armors[equippedArmorID].getName() << std::endl;
 			break;
+		default:
+			std::cout << " Wrong decision..." << std::endl;
+			Sleep(1000);
+			break;
 		}
-		Sleep(2000);
 	}
 	
 };
