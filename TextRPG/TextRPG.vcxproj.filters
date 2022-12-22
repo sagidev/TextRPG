@@ -44,5 +44,8 @@
     <ClInclude Include="src\Armor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="externals\color.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

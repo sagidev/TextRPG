@@ -24,12 +24,14 @@ Entity Game::spawnEnemy() {
 void Game::StartFight(Entity enemy) 
 {
 	system("cls");
-	std::cout << "You encountered an enemy!" << std::endl;
-	enemy.ShowStats();
+	std::cout << " Tower of Crack - [" << dye::red("STAGE ") << dye::red(GetStage()) << "]" << std::endl << std::endl;
+
+	std::cout << " [" << dye::red("DANGER!") << "] You encountered an enemy!" << std::endl;
 	player.ShowStats();
-	std::cout << "\nWhat do you want to do?" << std::endl;
-	std::cout << "1. Attack" << std::endl;
-	std::cout << "2. Run" << std::endl;
+	enemy.ShowStats();
+	std::cout << "\n What do you want to do?" << std::endl;
+	std::cout << "  1. Attack" << std::endl;
+	std::cout << "  2. Run\n\n --> ";
 	int decision = GetDecision();
 	if (decision == 1) {
 		while (player.GetHealth() > 0 && enemy.GetHealth() > 0) {
@@ -58,8 +60,8 @@ void Game::StartFight(Entity enemy)
 	}
 	else if (decision == 2) {
 		std::cout << "You ran away!" << std::endl;
+		stage--;
 		Sleep(1000);
-		StartStage();
 	}
 }
 
@@ -95,7 +97,10 @@ void Game::StartStage() {
 /// </summary>
 void Game::DrawFrame() {
 	system("cls");
-	std::cout << " Tower of Crack - [STAGE " << GetStage() << "]" << std::endl << std::endl;
+	if(GetStage() == 0)
+		std::cout << " Tower of Crack - [" << dye::red("STAGE ") << dye::red(GetStage()) << "] - ENTRY" << std::endl << std::endl;
+	else
+		std::cout << " Tower of Crack - [" << dye::red("STAGE ") << dye::red(GetStage()) << "]" << std::endl << std::endl;
 
 	player.ShowStats();
 	
@@ -142,10 +147,10 @@ void Game::DrawFrame() {
 /// Game init and main loop
 /// </summary>
 void Game::StartGame() {
-	std::cout << " Enter your name: ";
+	std::cout << " Enter your " << dye::red("name") << "..\n\n --> ";
 	std::string _name;
 	std::getline(std::cin, _name);
-	Entity _player(_name, "warrior", 100, 10, 10, 1, 0);
+	Entity _player(_name, "Warrior", 100, 10, 10, 1, 0);
 	player = _player;
 	isGameRunning = true;
 	Weapon sword("Starting Sword", 1, 55, 10, 10);

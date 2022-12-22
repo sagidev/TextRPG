@@ -2,6 +2,7 @@
 #include <string>
 #include <iostream>
 #include "Inventory.h"
+#include "../externals/color.h"
 class Entity {
 public:
 
@@ -32,19 +33,16 @@ public:
 	/// Show all the info about entity
 	/// </summary>
 	void ShowStats() {
-		std::cout << "\n" << GetName() << " stats:" << std::endl;
+		std::cout << "\n [" << dye::yellow(GetName()) << "] [" << dye::green (GetOverallPower()) << "] [Level:" << dye::green(this->level) << "]" << std::endl;
 		if (entity_class != "NPC")
 		{
 			ShowExpBar();
 		}
 			
-		std::cout << " Name: " << this->name << " Class: " << this->entity_class << std::endl;
-		std::cout << " Health: " << this->health << "/" << this->maxHealth << std::endl;
-		std::cout << " Damage: " << GetDamage() << " | Defense: " << GetFullDefense() << std::endl;
-		if (entity_class != "NPC")
-		{
-			std::cout << " Gold: " << GetGold() << std::endl;
-		}
+		std::cout << " Class: " << this->entity_class << std::endl;
+		std::cout << " Health: " << dye::red(this->health) << "/" << dye::red(this->maxHealth) << std::endl;
+		std::cout << " Damage: " << dye::light_red(GetDamage()) << " | Defense: " << dye::aqua(GetFullDefense()) << std::endl;
+		std::cout << " Gold: " << dye::yellow(GetGold()) << std::endl;
 
 	}
 
@@ -137,7 +135,7 @@ public:
 				std::cout << " ";
 			}
 		}
-		std::cout << "] " << exp << "/" << maxExp << " | Level: " << this->level << std::endl;
+		std::cout << "] " << exp << "/" << maxExp  << std::endl;
 	}
 	
 	void Attack(Entity &enemy)
@@ -148,6 +146,11 @@ public:
 		if (enemy.GetHealth() <= 0) {
 			KillEnemy(enemy);
 		}
+	}
+
+	int GetOverallPower()
+	{
+		return this->attack + this->defense;
 	}
 private:
 	std::string name;
@@ -162,4 +165,5 @@ private:
 	int maxExp;
 	int gold;
 	int crit;
+	int overallPower;
 };

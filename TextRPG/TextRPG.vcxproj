@@ -132,6 +132,7 @@
     <ClCompile Include="src\TextRPG.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="externals\color.h" />
     <ClInclude Include="src\Armor.h" />
     <ClInclude Include="src\Entity.h" />
     <ClInclude Include="src\Game.h" />

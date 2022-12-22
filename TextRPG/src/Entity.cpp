@@ -18,7 +18,7 @@ Entity::Entity(std::string name, std::string entity_class, int health,
 		inventory.equippedArmorID = 0;
 	}
 
-	else if (entity_class == "warrior") {
+	else if (entity_class == "Warrior") {
 		this->entity_class = entity_class;
 		this->health = 150;
 		this->attack = 90;

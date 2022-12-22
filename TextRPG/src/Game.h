@@ -6,6 +6,7 @@
 #include <ctype.h>
 #include "Entity.h"
 #include "Weapon.h"
+#include "../externals/color.h"
 
 class Game {
 public:
