@@ -13,6 +13,9 @@ Entity Game::spawnEnemy() {
 	enemy.SetHealth(100 + (stage * 10));
 	enemy.SetExp(50 + (stage * 10));
 	enemy.SetAttack(10 + (stage * 10));
+	int power = enemy.GetOverallPower();
+	int random = rand() % 100 + (power/10);
+	enemy.SetGold(random);
 	return enemy;
 }
 
@@ -61,7 +64,14 @@ void Game::StartFight(Entity enemy)
 		}
 	}
 	else if (decision == 2) {
-		std::cout << "You ran away!" << std::endl;
+		int random = rand() % 100;
+		if(random > 50)
+			std::cout << "You ran away!" << std::endl;
+		else
+		{
+			std::cout << "You got robbed!" << std::endl;
+			player.SpendGold(enemy.GetGold() * 2);
+		}
 		stage--;
 		Sleep(1000);
 	}
@@ -111,7 +121,8 @@ void Game::DrawFrame() {
 	std::cout << " 2. Show EQ" << std::endl;
 	std::cout << " 3. Change EQ" << std::endl;
 	std::cout << " 4. Shop" << std::endl;
-	std::cout << " 5. Exit \n\n --> ";
+	std::cout << " 5. Dryad" << std::endl;
+	std::cout << " 6. Exit \n\n --> ";
 
 	switch (GetDecision())
 	{
@@ -133,6 +144,10 @@ void Game::DrawFrame() {
 		_getch();
 		break;
 	case 5:
+		//shopxd.OpenChest(player); // DRIADA MA HEALOWAC
+		_getch();
+		break;
+	case 6:
 		for (int i = 3; i > 0; i--)
 		{
 			std::cout << " Game will be closed in " << i << std::endl;

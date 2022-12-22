@@ -60,20 +60,51 @@ public:
 
 	void OpenChest(Entity& player) {
 
-		std::cout << " Chests: \n 1. Common\n 2.Uncommon" << std::endl;
+		Chest common_chest("Common Chest", common, 40);
+		Chest uncommon_chest("Uncommon Chest", uncommon, 80);
+		Chest rare_chest("Rare Chest", rare, 120);
+		Chest legendary_chest("Legendary Chest", legendary, 500);
+		std::cout << " Chests: \n 1. Common\n 2. Uncommon\n 3. Rare\n 4. Legendary" << std::endl;
 		int dec;
 		std::cin >> dec;
 		switch (dec) {
 		case 1:
-			Chest chest("Basic Chest", common, 40);
-			if (player.GetGold() >= chest.GetPrice())
+			if (player.GetGold() >= common_chest.GetPrice())
 			{
-				player.SpendGold(chest.GetPrice());
-				Weapon drop = chest.OpenWeaponChest();
+				player.SpendGold(common_chest.GetPrice());
+				Weapon drop = common_chest.OpenWeaponChest();
 				player.inventory.AddWeapon(drop);
 				std::cout << "\n Added " << drop.getName() << " to inventory" << std::endl;
 			}
 			break;
+		case 2:
+			if (player.GetGold() >= uncommon_chest.GetPrice())
+			{
+				player.SpendGold(uncommon_chest.GetPrice());
+				Weapon drop = uncommon_chest.OpenWeaponChest();
+				player.inventory.AddWeapon(drop);
+				std::cout << "\n Added " << drop.getName() << " to inventory" << std::endl;
+			}
+			break;
+		case 3:
+			if (player.GetGold() >= rare_chest.GetPrice())
+			{
+				player.SpendGold(rare_chest.GetPrice());
+				Weapon drop = rare_chest.OpenWeaponChest();
+				player.inventory.AddWeapon(drop);
+				std::cout << "\n Added " << drop.getName() << " to inventory" << std::endl;
+			}
+			break;
+		case 4:
+			if (player.GetGold() >= legendary_chest.GetPrice())
+			{
+				player.SpendGold(legendary_chest.GetPrice());
+				Weapon drop = legendary_chest.OpenWeaponChest();
+				player.inventory.AddWeapon(drop);
+				std::cout << "\n Added " << drop.getName() << " to inventory" << std::endl;
+			}
+			break;
+
 		}
 		
 	}

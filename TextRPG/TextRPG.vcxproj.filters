@@ -53,5 +53,8 @@
     <ClInclude Include="src\Chest.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\Todo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

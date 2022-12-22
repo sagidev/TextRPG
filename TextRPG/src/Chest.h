@@ -19,29 +19,113 @@ public:
 
 	Weapon OpenWeaponChest() {
 		int random = rand() % 100;
-		if (random < 50)
+		if (rarity == common)
 		{
-			int dmg = rand() % 10 + 1;
-			Weapon weapon("Common Sword", 1, dmg, 1, 1);
-			return weapon;
+			if (random < 50)
+			{
+				int dmg = rand() % 10 + 1;
+				Weapon weapon("Common Sword", 1, dmg, 1, 1);
+				return weapon;
+			}
+			else if (random < 75)
+			{
+				int dmg = rand() % 20 + 10;
+				Weapon weapon("Uncommon Sword", 1, dmg, 1, 1);
+				return weapon;
+			}
+			else if (random < 90)
+			{
+				int dmg = rand() % 20 + 30;
+				Weapon weapon("Rare Sword", 1, dmg, 1, 1);
+				return weapon;
+			}
+			else if (random < 100)
+			{
+				int dmg = rand() % 50 + 50;
+				Weapon weapon("Legendary Sword", 1, dmg, 1, 1);
+				return weapon;
+			}
 		}
-		else if (random < 75)
+		else if (rarity == uncommon)
 		{
-			int dmg = rand() % 20 + 10;
-			Weapon weapon("Uncommon Sword", 1, dmg, 1, 1);
-			return weapon;
+			if (random < 40)
+			{
+				int dmg = rand() % 10 + 1;
+				Weapon weapon("Common Sword", 1, dmg, 1, 1);
+				return weapon;
+			}
+			else if (random < 65)
+			{
+				int dmg = rand() % 20 + 10;
+				Weapon weapon("Uncommon Sword", 1, dmg, 1, 1);
+				return weapon;
+			}
+			else if (random < 80)
+			{
+				int dmg = rand() % 20 + 30;
+				Weapon weapon("Rare Sword", 1, dmg, 1, 1);
+				return weapon;
+			}
+			else if (random < 100)
+			{
+				int dmg = rand() % 50 + 50;
+				Weapon weapon("Legendary Sword", 1, dmg, 1, 1);
+				return weapon;
+			}
 		}
-		else if (random < 90)
+		else if (rarity == rare)
 		{
-			int dmg = rand() % 20 + 30;
-			Weapon weapon("Rare Sword", 1, dmg, 1, 1);
-			return weapon;
+			if (random < 30)
+			{
+				int dmg = rand() % 10 + 1;
+				Weapon weapon("Common Sword", 1, dmg, 1, 1);
+				return weapon;
+			}
+			else if (random < 55)
+			{
+				int dmg = rand() % 20 + 10;
+				Weapon weapon("Uncommon Sword", 1, dmg, 1, 1);
+				return weapon;
+			}
+			else if (random < 70)
+			{
+				int dmg = rand() % 20 + 30;
+				Weapon weapon("Rare Sword", 1, dmg, 1, 1);
+				return weapon;
+			}
+			else if (random < 100)
+			{
+				int dmg = rand() % 50 + 50;
+				Weapon weapon("Legendary Sword", 1, dmg, 1, 1);
+				return weapon;
+			}
 		}
-		else if (random < 100)
+		else if (rarity == legendary)
 		{
-			int dmg = rand() % 50 + 50;
-			Weapon weapon("Legendary Sword", 1, dmg, 1, 1);
-			return weapon;
+			if (random < 20)
+			{
+				int dmg = rand() % 10 + 1;
+				Weapon weapon("Common Sword", 1, dmg, 1, 1);
+				return weapon;
+			}
+			else if (random < 35)
+			{
+				int dmg = rand() % 20 + 10;
+				Weapon weapon("Uncommon Sword", 1, dmg, 1, 1);
+				return weapon;
+			}
+			else if (random < 50)
+			{
+				int dmg = rand() % 20 + 30;
+				Weapon weapon("Rare Sword", 1, dmg, 1, 1);
+				return weapon;
+			}
+			else if (random < 100)
+			{
+				int dmg = rand() % 50 + 50;
+				Weapon weapon("Legendary Sword", 1, dmg, 1, 1);
+				return weapon;
+			}
 		}
 	}
 
