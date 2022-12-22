@@ -19,6 +19,7 @@ class Shop {
 		weapons.push_back(std::make_pair(Weapon("Miecz Szymona", 7, 120, 95, 300), 250));
 
 		weapons.push_back(std::make_pair(Weapon("Miecz Dominika", 155, 30, 30, 30), 50));
+		weapons.push_back(std::make_pair(Weapon("Miecz chuj", 155, 30, 30, 30), 50));
 		//armors.push_back(std::make_pair(Armor("Wooden Armor", 0, 5));
 		//armors.push_back(std::make_pair(Armor("Iron Armor", 1, 10));
 		//armors.push_back(std::make_pair(Armor("Steel Armor", 2, 15));
