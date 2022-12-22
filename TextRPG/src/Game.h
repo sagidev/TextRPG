@@ -2,6 +2,8 @@
 #include <string>
 #include <iostream>
 #include <Windows.h>
+#include <conio.h>
+#include <ctype.h>
 #include "Entity.h"
 
 class Game {
@@ -10,7 +12,7 @@ public:
 	void DrawFrame();
 	void StartGame();
 	void EndGame();
-
+	void StartFight(Entity enemy);
 	Entity spawnEnemy();
 	void StartStage();
 

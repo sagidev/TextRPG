@@ -20,12 +20,10 @@ public:
 	}
 
 	void ShowStats() {
-		std::cout << " Name: " << this->name << std::endl;
-		std::cout << " Class: " << this->entity_class << std::endl;
+		std::cout << "\n" << GetName() << " stats:" << std::endl;
+		std::cout << " Name: " << this->name << " Class: " << this->entity_class << " | LvL: " << this->level << std::endl;
 		std::cout << " Health: " << this->health << "/" << this->maxHealth << std::endl;
-		std::cout << " Attack: " << this->attack << std::endl;
-		std::cout << " Defense: " << this->defense << std::endl;
-		std::cout << " Level: " << this->level << std::endl << std::endl;
+		std::cout << " Attack: " << this->attack << " | Defense: " << this->defense << std::endl;
 	}
 
 	std::string GetName() {
@@ -61,7 +59,6 @@ public:
 	void SetMaxExp(int i) {
 		this->maxExp = i;
 	}
-	
 	void SetAttack(int i) {
 		this->attack = i;
 	}
@@ -74,11 +71,28 @@ public:
 	int GetDefense()
 	{
 		return this->defense;
+	};
+	void SetCrit(int i) {
+		this->crit = i;
 	}
-	void Attack(Entity enemy)
+	int GetCrit() {
+		return this->crit;
+	}
+	bool IsCrit() {
+		if (rand() % 100 < this->crit) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	void Attack(Entity &enemy)
 	{
-		enemy.SetHealth(enemy.GetHealth() - (this->attack - enemy.GetDefense()));
-		std::cout << this->name << " attacked " << enemy.GetName() << " for " << (this->attack - enemy.GetDefense()) << " damage!" << std::endl;
+		int damage = this->attack;
+		if(IsCrit())
+			damage = damage * 2;
+		enemy.SetHealth(enemy.GetHealth() - (damage - enemy.GetDefense()));
+		std::cout << this->name << " attacked " << enemy.GetName() << " for " << (damage - enemy.GetDefense()) << " damage!" << std::endl;
 		if (enemy.GetHealth() <= 0) {
 			KillEnemy(enemy);
 		}
@@ -95,4 +109,5 @@ private:
 	int exp;
 	int maxExp;
 	int gold;
+	int crit;
 };
