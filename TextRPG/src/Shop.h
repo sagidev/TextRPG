@@ -18,7 +18,11 @@ class Shop {
 		weapons.push_back(std::make_pair(Weapon("God Sword", 6, 35, 35, 35), 20));
 		weapons.push_back(std::make_pair(Weapon("Miecz Szymona", 7, 120, 95, 300), 250));
 		weapons.push_back(std::make_pair(Weapon("Harnas Sword", 8, 35, 35, 35), 20));
+		//chuj xd
 
+		//pozdrawiam mame tate i rodzicow
+
+		//POZDRAWIAM TEZ MAME TATE I RODZICOW
 		weapons.push_back(std::make_pair(Weapon("Miecz Dominika", 155, 30, 30, 30), 50));
 		weapons.push_back(std::make_pair(Weapon("Miecz chuj", 155, 30, 30, 30), 50));
 		//armors.push_back(std::make_pair(Armor("Wooden Armor", 0, 5));
@@ -57,6 +61,7 @@ class Shop {
 			}
 		}
 	}
+
 
 	void ListItems() {
 		system("cls");
