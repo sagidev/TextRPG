@@ -1,8 +1,12 @@
 #pragma once
 #include <string>
 #include <iostream>
+#include "Inventory.h"
 class Entity {
 public:
+
+	Inventory inventory;
+
 	Entity(std::string name = "", std::string entity_class = "NPC", int health = 0,
 		int attack = 0, int defense = 0, int level = 1, int gold = 0);
 
@@ -22,10 +26,14 @@ public:
 	void ShowStats() {
 		std::cout << "\n" << GetName() << " stats:" << std::endl;
 		if (entity_class != "NPC")
+		{
 			ShowExpBar();
+		}
+			
 		std::cout << " Name: " << this->name << " Class: " << this->entity_class << std::endl;
 		std::cout << " Health: " << this->health << "/" << this->maxHealth << std::endl;
 		std::cout << " Attack: " << this->attack << " | Defense: " << this->defense << std::endl;
+
 	}
 
 	std::string GetName() {

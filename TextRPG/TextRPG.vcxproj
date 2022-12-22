@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClInclude Include="src\Entity.h" />
     <ClInclude Include="src\Game.h" />
+    <ClInclude Include="src\Inventory.h" />
     <ClInclude Include="src\Item.h" />
     <ClInclude Include="src\Weapon.h" />
   </ItemGroup>

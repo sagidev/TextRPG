@@ -84,13 +84,20 @@ void Game::DrawFrame() {
 	
 	std::cout << "\n\n Choose action: " << std::endl;
 	std::cout << " 1. Start Stage" << std::endl;
-	std::cout << " 2. Shop" << std::endl;
-	std::cout << " 3. Exit" << std::endl;
+	std::cout << " 2. Show EQ" << std::endl;
+	std::cout << " 3. Shop" << std::endl;
+	std::cout << " 4. Exit" << std::endl;
 
 	switch (GetDecision())
 	{
 	case 1:
 		StartStage();
+		break;
+	case 2:
+		player.inventory.ShowInventory();
+		std::cout << "Press any key to exit..." << std::endl;
+		_getch();
+		break;
 	}
 }
 
@@ -101,6 +108,10 @@ void Game::StartGame() {
 	Entity _player(_name, "warrior", 100, 10, 10, 1, 0);
 	player = _player;
 	isGameRunning = true;
+	Weapon sword("Starting Sword", 1, 55, 10, 10);
+	Weapon sword1("Newbie Sword", 1, 15, 10, 10);
+	player.inventory.AddWeapon(sword);
+	player.inventory.AddWeapon(sword1);
 	
 	while (isGameRunning) {
 		DrawFrame();
