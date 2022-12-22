@@ -40,13 +40,15 @@ void Game::StartFight(Entity enemy)
 			player.Attack(enemy);
 			enemy.ShowStats();
 			player.ShowStats();
-			Sleep(500);
-			system("cls");
-			std::cout << "Enemy attacked you!" << std::endl;
-			enemy.Attack(player);
-			enemy.ShowStats();
-			player.ShowStats();
-			Sleep(500);
+			Sleep(1000);
+			if (enemy.GetHealth() > 0) {
+				system("cls");
+				std::cout << "The enemy attacked you!" << std::endl;
+				enemy.Attack(player);
+				enemy.ShowStats();
+				player.ShowStats();
+			}
+			Sleep(1000);
 		}
 		if (player.GetHealth() <= 0) {
 			EndGame();
@@ -126,6 +128,8 @@ void Game::DrawFrame() {
 		std::cout << " Press any key to exit..." << std::endl;
 		_getch();
 		break;
+	case 4:
+		//shop.ListItems();
 	case 5:
 		for (int i = 3; i > 0; i--)
 		{

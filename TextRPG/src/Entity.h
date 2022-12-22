@@ -33,7 +33,7 @@ public:
 	/// Show all the info about entity
 	/// </summary>
 	void ShowStats() {
-		std::cout << "\n [" << dye::yellow(GetName()) << "] [" << dye::green (GetOverallPower()) << "] [Level:" << dye::green(this->level) << "]" << std::endl;
+		std::cout << "\n ----[" << dye::yellow(GetName()) << "]-[" << dye::green (GetOverallPower()) << "]-[Level:" << dye::green(this->level) << "]-----------------" << std::endl;
 		if (entity_class != "NPC")
 		{
 			ShowExpBar();
@@ -43,7 +43,12 @@ public:
 		std::cout << " Health: " << dye::red(this->health) << "/" << dye::red(this->maxHealth) << std::endl;
 		std::cout << " Damage: " << dye::light_red(GetDamage()) << " | Defense: " << dye::aqua(GetFullDefense()) << std::endl;
 		std::cout << " Gold: " << dye::yellow(GetGold()) << std::endl;
+		std::cout << "--------------------------------------------" << std::endl;
 
+	}
+
+	void SpendGold(int i) {
+		this->gold -= i;
 	}
 
 	std::string GetName() {
@@ -51,6 +56,9 @@ public:
 	}
 	int GetGold() {
 		return gold;
+	}
+	void SetGold(int i) {
+		gold = i;
 	}
 	int GetLevel() {
 		return level;
@@ -132,7 +140,7 @@ public:
 				std::cout << "#";
 			}
 			else {
-				std::cout << " ";
+				std::cout << "-";
 			}
 		}
 		std::cout << "] " << exp << "/" << maxExp  << std::endl;
@@ -150,7 +158,7 @@ public:
 
 	int GetOverallPower()
 	{
-		return this->attack + this->defense;
+		return GetDamage() + GetFullDefense();
 	}
 private:
 	std::string name;

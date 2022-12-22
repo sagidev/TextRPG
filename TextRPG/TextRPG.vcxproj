@@ -138,6 +138,7 @@
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Inventory.h" />
     <ClInclude Include="src\Item.h" />
+    <ClInclude Include="src\Shop.h" />
     <ClInclude Include="src\Weapon.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

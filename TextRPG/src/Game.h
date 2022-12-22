@@ -4,8 +4,7 @@
 #include <Windows.h>
 #include <conio.h>
 #include <ctype.h>
-#include "Entity.h"
-#include "Weapon.h"
+#include "Shop.h"
 #include "../externals/color.h"
 
 class Game {
@@ -16,6 +15,7 @@ public:
 	void EndGame();
 	void StartFight(Entity enemy);
 	Entity spawnEnemy();
+	Shop shop();
 	void StartStage();
 
 	int GetDecision() {

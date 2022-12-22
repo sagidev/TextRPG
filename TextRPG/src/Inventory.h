@@ -67,7 +67,7 @@ public:
 
 	void ChangeEquipment() {
 		system("cls");
-		std::cout << " Change Equipment: \n 1.Weapon\n 2.Armor" << std::endl;
+		std::cout << " Change Equipment: \n 1.Weapon\n 2.Armor \n 3.Back" << std::endl;
 		int dec;
 		std::cin >> dec;
 		switch (dec) {
@@ -90,6 +90,8 @@ public:
 			std::cin >> armorID;
 			equippedArmorID = armorID - 1;
 			std::cout << "\n Armor changed to " << armors[equippedArmorID].getName() << std::endl;
+			break;
+		case 3:
 			break;
 		default:
 			std::cout << " Wrong decision..." << std::endl;
