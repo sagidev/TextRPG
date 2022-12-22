@@ -1,28 +1,24 @@
 #pragma once
-#include "Weapon.h"
 #include <vector>
-#include "Armor.h"
 #include "Entity.h"
+#include "Chest.h"
 #include <iostream>
 class Shop {
+public:
 	std::vector<std::pair<Weapon,int>> weapons;
 	std::vector<std::pair<Armor, int >> armors;
 
 	Shop() {
-		weapons.push_back(std::make_pair(Weapon("Wooden Sword", 0, 5, 5, 5),20));
+		weapons.push_back(std::make_pair(Weapon("Wooden Sword", 0, 5, 5, 5), 20));
 		weapons.push_back(std::make_pair(Weapon("Iron Sword", 1, 10, 10, 10), 50));
-		weapons.push_back(std::make_pair(Weapon("Steel Sword", 2, 15, 15, 15),  20));
+		weapons.push_back(std::make_pair(Weapon("Steel Sword", 2, 15, 15, 15), 20));
 		weapons.push_back(std::make_pair(Weapon("Mithril Sword", 3, 20, 20, 20), 20));
 		weapons.push_back(std::make_pair(Weapon("Adamantite Sword", 4, 25, 25, 25), 20));
 		weapons.push_back(std::make_pair(Weapon("Dragon Sword", 5, 30, 30, 30), 20));
 		weapons.push_back(std::make_pair(Weapon("God Sword", 6, 35, 35, 35), 20));
 		weapons.push_back(std::make_pair(Weapon("Miecz Szymona", 7, 120, 95, 300), 250));
 		weapons.push_back(std::make_pair(Weapon("Harnas Sword", 8, 35, 35, 35), 20));
-		//chuj xd
 
-		//pozdrawiam mame tate i rodzicow
-
-		//POZDRAWIAM TEZ MAME TATE I RODZICOW
 		weapons.push_back(std::make_pair(Weapon("Miecz Dominika", 155, 30, 30, 30), 50));
 		weapons.push_back(std::make_pair(Weapon("Miecz chuj", 155, 30, 30, 30), 50));
 		//armors.push_back(std::make_pair(Armor("Wooden Armor", 0, 5));
@@ -32,7 +28,7 @@ class Shop {
 		//armors.push_back(std::make_pair(Armor("Adamantite Armor", 4, 25));
 		//armors.push_back(std::make_pair(Armor("Dragon Armor", 5, 30));
 		//armors.push_back(std::make_pair(Armor("God Armor", 6, 35));
-	}
+	};
 
 	void BuyItem(Entity player) {
 		system("cls");
@@ -62,6 +58,25 @@ class Shop {
 		}
 	}
 
+	void OpenChest(Entity& player) {
+
+		std::cout << " Chests: \n 1. Common\n 2.Uncommon" << std::endl;
+		int dec;
+		std::cin >> dec;
+		switch (dec) {
+		case 1:
+			Chest chest("Basic Chest", common, 40);
+			if (player.GetGold() >= chest.GetPrice())
+			{
+				player.SpendGold(chest.GetPrice());
+				Weapon drop = chest.OpenWeaponChest();
+				player.inventory.AddWeapon(drop);
+				std::cout << "\n Added " << drop.getName() << " to inventory" << std::endl;
+			}
+			break;
+		}
+		
+	}
 
 	void ListItems() {
 		system("cls");

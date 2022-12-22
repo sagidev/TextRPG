@@ -134,6 +134,7 @@
   <ItemGroup>
     <ClInclude Include="externals\color.h" />
     <ClInclude Include="src\Armor.h" />
+    <ClInclude Include="src\Chest.h" />
     <ClInclude Include="src\Entity.h" />
     <ClInclude Include="src\Game.h" />
     <ClInclude Include="src\Inventory.h" />

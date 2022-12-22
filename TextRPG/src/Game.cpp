@@ -129,7 +129,9 @@ void Game::DrawFrame() {
 		_getch();
 		break;
 	case 4:
-		//shop.ListItems();
+		shopxd.OpenChest(player);
+		_getch();
+		break;
 	case 5:
 		for (int i = 3; i > 0; i--)
 		{
