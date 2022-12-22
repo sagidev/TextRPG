@@ -14,7 +14,7 @@ Entity::Entity(std::string name, std::string entity_class, int health,
 	if (entity_class == "warrior") {
 		this->entity_class = entity_class;
 		this->health = 150;
-		this->attack = 10;
+		this->attack = 90;
 		this->defense = 20;
 	}
 	

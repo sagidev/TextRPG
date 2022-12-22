@@ -44,12 +44,10 @@ void Game::StartFight(Entity enemy)
 			EndGame();
 		}
 		else if (enemy.GetHealth() <= 0) {
+			system("cls");
 			std::cout << "You killed the enemy!" << std::endl;
-			player.KillEnemy(enemy);
-			std::cout << "Your stats:" << std::endl;
 			player.ShowStats();
 			Sleep(1000);
-			StartStage();
 		}
 	}
 	else if (decision == 2) {
@@ -80,13 +78,9 @@ void Game::StartStage() {
 
 void Game::DrawFrame() {
 	system("cls");
-	std::cout << " __TextRPG__ " << std::endl << std::endl;
+	std::cout << " Tower of Crack - [STAGE " << GetStage() << "]" << std::endl << std::endl;
 
-	std::cout << " Name: " << player.GetName() << std::endl;
-	std::cout << " Health: " << player.GetHealth() << "/" << player.GetMaxHealth() << std::endl;
-	std::cout << " Exp: " << player.GetExp() << "/" << player.GetMaxExp() << std::endl;
-
-	std::cout << "\n Stage: " << GetStage() << std::endl;
+	player.ShowStats();
 	
 	std::cout << "\n\n Choose action: " << std::endl;
 	std::cout << " 1. Start Stage" << std::endl;
@@ -106,13 +100,9 @@ void Game::StartGame() {
 	std::getline(std::cin, _name);
 	Entity _player(_name, "warrior", 100, 10, 10, 1, 0);
 	player = _player;
-	player.SetAttack(10);
-	player.SetDefense(10);
 	isGameRunning = true;
 	
 	while (isGameRunning) {
 		DrawFrame();
-
-		int xd = GetDecision();
 	}
 }

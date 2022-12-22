@@ -21,7 +21,9 @@ public:
 
 	void ShowStats() {
 		std::cout << "\n" << GetName() << " stats:" << std::endl;
-		std::cout << " Name: " << this->name << " Class: " << this->entity_class << " | LvL: " << this->level << std::endl;
+		if (entity_class != "NPC")
+			ShowExpBar();
+		std::cout << " Name: " << this->name << " Class: " << this->entity_class << std::endl;
 		std::cout << " Health: " << this->health << "/" << this->maxHealth << std::endl;
 		std::cout << " Attack: " << this->attack << " | Defense: " << this->defense << std::endl;
 	}
@@ -86,6 +88,22 @@ public:
 			return false;
 		}
 	}
+
+	void ShowExpBar() {
+		int expBarSize = 20;
+		int expBarProgress = (expBarSize * exp) / maxExp;
+		std::cout << " Exp: [";
+		for (int i = 0; i < expBarSize; i++) {
+			if (i < expBarProgress) {
+				std::cout << "#";
+			}
+			else {
+				std::cout << " ";
+			}
+		}
+		std::cout << "] " << exp << "/" << maxExp << " | Level: " << this->level << std::endl;
+	}
+	
 	void Attack(Entity &enemy)
 	{
 		int damage = this->attack;

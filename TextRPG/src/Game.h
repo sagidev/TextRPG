@@ -5,6 +5,7 @@
 #include <conio.h>
 #include <ctype.h>
 #include "Entity.h"
+#include "Weapon.h"
 
 class Game {
 public:
