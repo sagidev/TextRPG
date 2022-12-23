@@ -3,6 +3,7 @@
 It's a simple text-based console rouglike game when everything is about going through the next floors of some tower and defeating stronger and stronger monsters with some gambling stuff in between. You can spend your gold in Shop by opening chests or buying pre-made swords. You also get healed by Dryad.
 There are 4 possible rarities of items - Common, uncommon, rare, legendary.
 Each of them has different attributes and DMG multipliers.
+After defeating the final boss you die cause of crack overdose
 
 TODO:
 - Consumables
