@@ -1,5 +1,16 @@
 # TextRPG
 
+It's a simple text-based console rouglike game when everything is about going through the next floors of some tower and defeating stronger and stronger monsters with some gambling stuff in between. You can spend your gold in Shop by opening chests or buying pre-made swords. You also get healed by Dryad.
+There are 4 possible rarities of items - Common, uncommon, rare, legendary.
+Each of them has different attributes and DMG multipliers.
+
+TODO:
+- Consumables
+- Upgrading Materials
+- Bosses
+
+# Screenshots
+
 Main Menu
 
 ![image](https://user-images.githubusercontent.com/58301845/209340076-b2f7749e-e172-4eb4-9a76-cf1c1bc9354c.png)
@@ -34,5 +45,3 @@ Healing for money
 
 ![image](https://user-images.githubusercontent.com/58301845/209340381-8b4cd5e7-3de6-4fb3-9c36-6752faa98a96.png)
 
-
-Simple endless console rouglelike
