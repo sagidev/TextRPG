@@ -39,8 +39,8 @@ public:
 		return rarity;
 	}
 	void setRandomName() {
-		int na = rand() % 6 + 1;
-		int na1 = rand() % 3 + 1;
+		int na = rand() % 5 + 0;
+		int na1 = rand() % 2 + 0;
 		this->setName(names[na] + " " + namestype[na1]);
 	}
 private:

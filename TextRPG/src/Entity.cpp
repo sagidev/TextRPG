@@ -9,8 +9,8 @@ Entity::Entity(std::string name, std::string entity_class, int health,
 		this->health = health;
 		this->attack = attack;
 		this->defense = defense;
-
-		Weapon weapon("", 1, 5, 1, 1,item_rarity::common);
+		int dmg = rand() % 20 + (level * 5);
+		Weapon weapon("", 1, dmg, 1, 1,item_rarity::common);
 		weapon.setRandomName();
 		inventory.AddWeapon(weapon);
 		inventory.equippedWeaponID = 0;
@@ -25,7 +25,7 @@ Entity::Entity(std::string name, std::string entity_class, int health,
 		this->attack = 20;
 		this->defense = 20;
 		
-		Weapon weapon("Newbie Sword", 1, 25, 1, 1, item_rarity::common);
+		Weapon weapon("Newbie Sword", 1, 20, 1, 1, item_rarity::common);
 		inventory.AddWeapon(weapon);
 		inventory.equippedWeaponID = 0;
 		Armor armor("Newbie Armor", 1, 1, item_rarity::common);

@@ -197,10 +197,6 @@ void Game::StartGame() {
 	Entity _player(_name, "Warrior", 100, 10, 10, 1, 0);
 	player = _player;
 	isGameRunning = true;
-	Weapon sword("Warrior's Sword", 1, 15, 5, 10, item_rarity::common);
-	Armor armor("Warrior's Armor", 1, 20, item_rarity::common);
-	player.inventory.AddWeapon(sword);
-	player.inventory.AddArmor(armor);
 	
 	while (isGameRunning) {
 		DrawFrame();
