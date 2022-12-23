@@ -45,6 +45,20 @@ public:
 		else
 			return 0;
 	}
+
+	int GetCritDamage() {
+		if (weapons.size() > 0)
+			return weapons[equippedWeaponID].getCritDamage();
+		else
+			return 0;
+	}
+
+	int GetCritChance() {
+		if (weapons.size() > 0)
+			return weapons[equippedWeaponID].getCritChance();
+		else
+			return 0; 
+	}
 	
 	void ShowInventory() {
 		system("cls");

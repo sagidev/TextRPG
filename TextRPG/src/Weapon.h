@@ -20,6 +20,12 @@ public:
 			return damage * 1.5;
 		}
 	}
+	int getCritChance() {
+		return critChance;
+	}
+	int getCritDamage(){
+		return critDamage; 
+	}
 	int getPower() {
 		return getDamage() + critChance + critDamage;
 	}

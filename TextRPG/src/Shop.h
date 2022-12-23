@@ -64,7 +64,11 @@ public:
 		Chest uncommon_chest("Uncommon Chest", advanced, 80);
 		Chest rare_chest("Rare Chest", premium, 120);
 		Chest legendary_chest("Legendary Chest", legend, 500);
-		std::cout << " Chests: \n 1. Common\n 2. Uncommon\n 3. Rare\n 4. Legendary" << std::endl;
+		std::cout << " Chests: " << std::endl;
+		std::cout << " 1. Common Chest - " << dye::yellow(common_chest.GetPrice()) << " Gold" << std::endl;
+		std::cout << " 2. Uncommon Chest - " << dye::yellow(uncommon_chest.GetPrice()) << " Gold" << std::endl;
+		std::cout << " 3. Rare Chest - " << dye::yellow(rare_chest.GetPrice()) << " Gold" << std::endl;
+		std::cout << " 4. Legendary Chest - " << dye::yellow(legendary_chest.GetPrice()) << " Gold" << std::endl;
 		int dec;
 		std::cin >> dec;
 		switch (dec) {

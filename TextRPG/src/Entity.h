@@ -41,7 +41,7 @@ public:
 			
 		std::cout << " Class: " << this->entity_class << std::endl;
 		std::cout << " Health: " << dye::red(this->health) << "/" << dye::red(this->maxHealth) << std::endl;
-		std::cout << " Damage: " << dye::light_red(GetDamage()) << " | Defense: " << dye::aqua(GetFullDefense()) << std::endl;
+		std::cout << " Damage: " << dye::light_red(GetFullAttack()) << " | Defense: " << dye::aqua(GetFullDefense()) << " | Crit\%: " << dye::blue(this->inventory.GetCritChance()) << std::endl;
 		std::cout << " Gold: " << dye::yellow(GetGold()) << std::endl;
 		std::cout << "--------------------------------------------" << std::endl;
 
@@ -126,6 +126,10 @@ public:
 		}
 		return damage;
 	}
+	
+	int GetFullAttack() {
+		return this->attack + inventory.GetWeaponDamage();
+	}
 
 	int GetFullDefense() {
 		return this->defense + inventory.GetArmorDefense();
@@ -158,7 +162,7 @@ public:
 
 	int GetOverallPower()
 	{
-		return GetDamage() + GetFullDefense();
+		return GetFullAttack() + GetFullDefense();
 	}
 private:
 	std::string name;
