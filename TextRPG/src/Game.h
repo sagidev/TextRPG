@@ -16,7 +16,7 @@ public:
 	void StartFight(Entity enemy);
 	Entity spawnEnemy();
 	void StartStage();
-	Shop shopxd;
+	Shop shop;
 	int GetDecision() {
 		int dec;
 		std::cin >> dec;

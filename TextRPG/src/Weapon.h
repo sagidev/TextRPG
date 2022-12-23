@@ -3,6 +3,9 @@
 
 class Weapon : public Item {
 public:
+	std::string names[6] = { "Copper", "Stone", "Wooden","Cobalt","Dirt","Grass", };
+	std::string namestype[3] = {"Sword", "Blade", "Axe"};
+
 	Weapon(const std::string& name, int id, int damage, int critChance, int critDamage, item_rarity rar)
 		: Item(name, id, weapon, rar), damage(damage), critChance(critChance), critDamage(critDamage), rarity(rar) {}
 	
@@ -34,6 +37,11 @@ public:
 	}
 	item_rarity getRarity() {
 		return rarity;
+	}
+	void setRandomName() {
+		int na = rand() % 6 + 1;
+		int na1 = rand() % 3 + 1;
+		this->setName(names[na] + " " + namestype[na1]);
 	}
 private:
 	item_rarity rarity;

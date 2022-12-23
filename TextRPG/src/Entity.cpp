@@ -10,7 +10,8 @@ Entity::Entity(std::string name, std::string entity_class, int health,
 		this->attack = attack;
 		this->defense = defense;
 
-		Weapon weapon("Zombie Sword", 1, 5, 1, 1,item_rarity::common);
+		Weapon weapon("", 1, 5, 1, 1,item_rarity::common);
+		weapon.setRandomName();
 		inventory.AddWeapon(weapon);
 		inventory.equippedWeaponID = 0;
 		Armor armor("Newbie Armor", 1, 1, item_rarity::common);

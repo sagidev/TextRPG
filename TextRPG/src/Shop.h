@@ -30,7 +30,7 @@ public:
 		//armors.push_back(std::make_pair(Armor("God Armor", 6, 35));
 	};
 
-	void BuyItem(Entity player) {
+	void BuyItem(Entity& player) {
 		system("cls");
 		std::cout << " Shop: \n" << std::endl;
 		std::cout << " Weapons:" << std::endl;
@@ -43,6 +43,7 @@ public:
 		}
 		std::cout << "\n 0. Exit" << std::endl;
 		std::cout << "\n Select item to buy: ";
+		std::cout << "\n -->";
 		int itemID;
 		std::cin >> itemID;
 		if (itemID == 0) {
@@ -54,12 +55,37 @@ public:
 				player.SpendGold(weapons[itemID - 1].second);
 				player.inventory.AddWeapon(weapons[itemID - 1].first);
 				weapons.erase(weapons.begin() + itemID - 1);
+				std::cout << " You bought " << weapons[itemID - 1].first.getName() << " for " << weapons[itemID - 1].second << " gold." << std::endl;
+			}
+			else
+			{
+				std::cout << " You don't have enough gold!" << std::endl;
+				_getch();
 			}
 		}
 	}
 
-	void OpenChest(Entity& player) {
+	void OpenShop(Entity& player) {
+		system("cls");
+		std::cout << " Shop: " << std::endl;
+		std::cout << " 1. Open Shop"<< std::endl;
+		std::cout << " 2. Buy a Chest" << std::endl;
+		std::cout << "\n -->";
+		int dec;
+		std::cin >> dec;
+		switch (dec) {
+		case 1:
+			BuyItem(player);
+			break;
+		case 2:
+			OpenChest(player);
+			break;
+		}
+		
+	}
 
+	void OpenChest(Entity& player) {
+		system("cls");
 		Chest common_chest("Common Chest", starter, 40);
 		Chest uncommon_chest("Uncommon Chest", advanced, 80);
 		Chest rare_chest("Rare Chest", premium, 120);
@@ -69,6 +95,7 @@ public:
 		std::cout << " 2. Uncommon Chest - " << dye::yellow(uncommon_chest.GetPrice()) << " Gold" << std::endl;
 		std::cout << " 3. Rare Chest - " << dye::yellow(rare_chest.GetPrice()) << " Gold" << std::endl;
 		std::cout << " 4. Legendary Chest - " << dye::yellow(legendary_chest.GetPrice()) << " Gold" << std::endl;
+		std::cout << "\n -->";
 		int dec;
 		std::cin >> dec;
 		switch (dec) {

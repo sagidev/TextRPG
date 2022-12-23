@@ -9,7 +9,7 @@ Game::Game() {
 /// </summary>
 /// <returns>Enemy</returns>
 Entity Game::spawnEnemy() {
-	Entity enemy("Enemy", "NPC", 100 + (stage * 10), 10, 0, stage, 50);
+	Entity enemy("Ghost", "NPC", 100 + (stage * 10), 10, 0, stage, 50);
 	enemy.SetHealth(100 + (stage * 10));
 	enemy.SetExp(50 + (stage * 10));
 	enemy.SetAttack(10 + (stage * 10));
@@ -58,9 +58,12 @@ void Game::StartFight(Entity enemy)
 		}
 		else if (enemy.GetHealth() <= 0) {
 			system("cls");
-			std::cout << "You killed the enemy!" << std::endl;
+			std::cout << dye::green(" VICTORY!") << "\n You killed the enemy!\n\n ---[Loot]----------------\n Gold - " << dye::yellow(enemy.GetGold()) << std::endl;
+			enemy.DropWeapon(player);
+			std::cout << "\n -------------------------" << std::endl << std::endl;
 			player.ShowStats();
-			Sleep(1000);
+			std::cout << "Press any key to continue..." << std::endl;
+			_getch();
 		}
 	}
 	else if (decision == 2) {
@@ -140,7 +143,7 @@ void Game::DrawFrame() {
 		_getch();
 		break;
 	case 4:
-		shopxd.OpenChest(player);
+		shop.OpenShop(player);
 		_getch();
 		break;
 	case 5:

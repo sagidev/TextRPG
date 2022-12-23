@@ -50,6 +50,22 @@ public:
 	void SpendGold(int i) {
 		this->gold -= i;
 	}
+	bool DropWeapon(Entity& player) {
+		int random = rand() % 100;
+		if (random > 50) {
+			Weapon weapon = inventory.getWeapon(this->inventory.equippedWeaponID);
+			player.inventory.AddWeapon(weapon);
+			std::cout << " [!] You got a " << dye::green(weapon.getName()) << "!";
+			return true;
+		}
+		else {
+			std::cout << "You got nothing!" << std::endl;
+			return false;
+		}
+	}
+	bool DropMaterial(Entity& player) {
+		
+	}
 
 	std::string GetName() {
 		return name;
