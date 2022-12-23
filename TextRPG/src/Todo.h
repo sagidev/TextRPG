@@ -1,6 +1,5 @@
 #pragma once
 //Kasa na minusie - usuwa ci bron albo zbroje z ekwipunku
-//leczenie u driady za sianko
 //gamblingu wiecej
 //pozyczki w banku
 //przeciwnicy z lepszymi broniami
@@ -13,3 +12,5 @@
 //status co level
 //minibossy i bossy
 //spelle i mana
+//enchant miecza typu mnoznik dmg albo mnoznik siana np
+//drop ulepszaczy z mobow i bosow

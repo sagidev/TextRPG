@@ -10,10 +10,10 @@ Entity::Entity(std::string name, std::string entity_class, int health,
 		this->attack = attack;
 		this->defense = defense;
 
-		Weapon weapon("Zombie Sword", 1, 5, 1, 1);
+		Weapon weapon("Zombie Sword", 1, 5, 1, 1,item_rarity::common);
 		inventory.AddWeapon(weapon);
 		inventory.equippedWeaponID = 0;
-		Armor armor("Newbie Armor", 1, 1);
+		Armor armor("Newbie Armor", 1, 1, item_rarity::common);
 		inventory.AddArmor(armor);
 		inventory.equippedArmorID = 0;
 	}
@@ -21,13 +21,13 @@ Entity::Entity(std::string name, std::string entity_class, int health,
 	else if (entity_class == "Warrior") {
 		this->entity_class = entity_class;
 		this->health = 150;
-		this->attack = 90;
+		this->attack = 20;
 		this->defense = 20;
 		
-		Weapon weapon("Newbie Sword", 1, 25, 1, 1);
+		Weapon weapon("Newbie Sword", 1, 25, 1, 1, item_rarity::common);
 		inventory.AddWeapon(weapon);
 		inventory.equippedWeaponID = 0;
-		Armor armor("Newbie Armor", 1, 1);
+		Armor armor("Newbie Armor", 1, 1, item_rarity::common);
 		inventory.AddArmor(armor);
 		inventory.equippedArmorID = 0;
 	}

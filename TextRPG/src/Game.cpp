@@ -144,7 +144,27 @@ void Game::DrawFrame() {
 		_getch();
 		break;
 	case 5:
-		//shopxd.OpenChest(player); // DRIADA MA HEALOWAC
+		std::cout << " Do you want to get healed for 100$? \n 1. Yes\n 2. No" << std::endl;
+		int decision;
+		std::cin >> decision;
+		switch (decision) {
+		case 1:
+			if(player.GetGold() >= 100)
+			{
+				player.SetHealth(player.GetMaxHealth());
+				player.SpendGold(100);
+				std::cout << " You got healed!" << std::endl;
+			}
+			else
+			{
+				std::cout << " You don't have enough money!" << std::endl;
+			}
+			break;
+		case 2:
+			break;
+		default:
+			break;
+		}
 		_getch();
 		break;
 	case 6:
@@ -174,11 +194,9 @@ void Game::StartGame() {
 	Entity _player(_name, "Warrior", 100, 10, 10, 1, 0);
 	player = _player;
 	isGameRunning = true;
-	Weapon sword("Starting Sword", 1, 55, 10, 10);
-	Weapon sword1("Newbie Sword", 1, 15, 10, 10);
-	Armor armor("Starting Armor", 1, 20);
+	Weapon sword("Warrior's Sword", 1, 15, 5, 10, item_rarity::common);
+	Armor armor("Warrior's Armor", 1, 20, item_rarity::common);
 	player.inventory.AddWeapon(sword);
-	player.inventory.AddWeapon(sword1);
 	player.inventory.AddArmor(armor);
 	
 	while (isGameRunning) {

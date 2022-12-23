@@ -3,6 +3,7 @@
 #include <vector>
 #include "Armor.h"
 #include <Windows.h>
+#include "../externals/color.h"
 
 class Inventory {
 public:
@@ -50,10 +51,28 @@ public:
 		std::cout << " Inventory: \n" << std::endl;
 		std::cout << " Weapons:" << std::endl;
 		for (int i = 0; i < weapons.size(); i++) {
-			if(i == equippedWeaponID)
-				std::cout << " " << i + 1 << ". " << weapons[i].getName() << " | AD: " << weapons[i].getDamage() << "   ["<< weapons[i].getPower() << "]" << " [EQIPPED]" << std::endl;
+			if (i == equippedWeaponID)
+			{
+				if (weapons[i].getRarity() == common)
+					std::cout << " " << i + 1 << ". " << weapons[i].getName() << " | AD: " << weapons[i].getDamage() << "   [" << weapons[i].getPower() << "]" << " [EQIPPED]" << std::endl;
+				else if (weapons[i].getRarity() == uncommon)
+					std::cout << " " << i + 1 << ". " << dye::green(weapons[i].getName()) << " | AD: " << weapons[i].getDamage() << "   [" << weapons[i].getPower() << "]" << " [EQIPPED]" << std::endl;
+				else if (weapons[i].getRarity() == rare)
+					std::cout << " " << i + 1 << ". " << dye::blue(weapons[i].getName()) << " | AD: " << weapons[i].getDamage() << "   [" << weapons[i].getPower() << "]" << " [EQIPPED]" << std::endl;
+				else if (weapons[i].getRarity() == legendary)
+					std::cout << " " << i + 1 << ". " << dye::yellow(weapons[i].getName()) << " | AD: " << weapons[i].getDamage() << "   [" << weapons[i].getPower() << "]" << " [EQIPPED]" << std::endl;
+			}
 			else
-				std::cout << " " << i + 1 << ". " << weapons[i].getName() << " | AD: " << weapons[i].getDamage() << "   [" << weapons[i].getPower() << "]" << std::endl;
+			{
+				if (weapons[i].getRarity() == common)
+					std::cout << " " << i + 1 << ". " << weapons[i].getName() << " | AD: " << weapons[i].getDamage() << "   [" << weapons[i].getPower() << "]" << std::endl;
+				else if (weapons[i].getRarity() == uncommon)
+					std::cout << " " << i + 1 << ". " << dye::green(weapons[i].getName()) << " | AD: " << weapons[i].getDamage() << "   [" << weapons[i].getPower() << "]"<< std::endl;
+				else if (weapons[i].getRarity() == rare)
+					std::cout << " " << i + 1 << ". " << dye::blue(weapons[i].getName()) << " | AD: " << weapons[i].getDamage() << "   [" << weapons[i].getPower() << "]" << std::endl;
+				else if (weapons[i].getRarity() == legendary)
+					std::cout << " " << i + 1 << ". " << dye::yellow(weapons[i].getName()) << " | AD: " << weapons[i].getDamage() << "   [" << weapons[i].getPower() << "]" <<std::endl;
+			}
 		}
 		std::cout << "\n Armors:" << std::endl;
 		for (int i = 0; i < armors.size(); i++) {
@@ -74,7 +93,28 @@ public:
 		case 1:
 			std::cout << " Choose weapon: " << std::endl;
 			for (int i = 0; i < weapons.size(); i++) {
-				std::cout << " " << i + 1 << ". " << weapons[i].getName() << " | AD: " << weapons[i].getDamage() << "   [" << weapons[i].getPower() << "]" << std::endl;
+				if (i == equippedWeaponID)
+				{
+					if (weapons[i].getRarity() == common)
+						std::cout << " " << i + 1 << ". " << weapons[i].getName() << " | AD: " << weapons[i].getDamage() << "   [" << weapons[i].getPower() << "]" << " [EQIPPED]" << std::endl;
+					else if (weapons[i].getRarity() == uncommon)
+						std::cout << " " << i + 1 << ". " << dye::green(weapons[i].getName()) << " | AD: " << weapons[i].getDamage() << "   [" << weapons[i].getPower() << "]" << " [EQIPPED]" << std::endl;
+					else if (weapons[i].getRarity() == rare)
+						std::cout << " " << i + 1 << ". " << dye::blue(weapons[i].getName()) << " | AD: " << weapons[i].getDamage() << "   [" << weapons[i].getPower() << "]" << " [EQIPPED]" << std::endl;
+					else if (weapons[i].getRarity() == legendary)
+						std::cout << " " << i + 1 << ". " << dye::yellow(weapons[i].getName()) << " | AD: " << weapons[i].getDamage() << "   [" << weapons[i].getPower() << "]" << " [EQIPPED]" << std::endl;
+				}
+				else
+				{
+					if (weapons[i].getRarity() == common)
+						std::cout << " " << i + 1 << ". " << weapons[i].getName() << " | AD: " << weapons[i].getDamage() << "   [" << weapons[i].getPower() << "]" << std::endl;
+					else if (weapons[i].getRarity() == uncommon)
+						std::cout << " " << i + 1 << ". " << dye::green(weapons[i].getName()) << " | AD: " << weapons[i].getDamage() << "   [" << weapons[i].getPower() << "]" << std::endl;
+					else if (weapons[i].getRarity() == rare)
+						std::cout << " " << i + 1 << ". " << dye::blue(weapons[i].getName()) << " | AD: " << weapons[i].getDamage() << "   [" << weapons[i].getPower() << "]" << std::endl;
+					else if (weapons[i].getRarity() == legendary)
+						std::cout << " " << i + 1 << ". " << dye::yellow(weapons[i].getName()) << " | AD: " << weapons[i].getDamage() << "   [" << weapons[i].getPower() << "]" << std::endl;
+				}
 			}
 			int weaponID;
 			std::cin >> weaponID;
